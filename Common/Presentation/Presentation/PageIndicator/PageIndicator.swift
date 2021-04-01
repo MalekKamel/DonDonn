@@ -4,7 +4,6 @@
 
 import SwiftUI
 
-// MARK: - Dot Indicator -
 public struct DotIndicator: View {
     let minScale: CGFloat = 1
     let maxScale: CGFloat = 1.1

@@ -5,11 +5,11 @@
 import SwiftUI
 
 struct MenuListView: View {
-    @EnvironmentObject var vm: HomeVM
+    @EnvironmentObject var presenter: HomePresenter
 
     var body: some View {
         VStack(spacing: 100) {
-            ForEach(vm.menuItems) { data in
+            ForEach(presenter.menuItems) { data in
                 GeometryReader { reader in
                     MenuItemView(item: data)
                             .opacity(1)
@@ -24,7 +24,7 @@ struct MenuListView: View {
                                 }))
             }
         }
-                .onAppear(perform: vm.loadMenuItems)
+                .onAppear(perform: presenter.loadMenuItems)
     }
 }
 

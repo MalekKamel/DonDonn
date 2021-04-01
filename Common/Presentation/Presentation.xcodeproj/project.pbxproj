@@ -14,7 +14,7 @@
 		18BA8F2D2613ABCC00F20689 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA8F2C2613ABCC00F20689 /* Assets.swift */; };
 		18C1B8012615F31A00F31A57 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BA8C722613778300F20689 /* Core.framework */; };
 		18C1B8022615F31A00F31A57 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18BA8C722613778300F20689 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		58B8347410C4AFAFC97A61B6 /* DotIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B8367387EA48C7A291867D /* DotIndicator.swift */; };
+		58B83425E2923644AA9D957C /* PageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B831511C3558831DFBF885 /* PageIndicator.swift */; };
 		93D5DDF8F23F2418EA53FC56 /* Pods_Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5843BD8F492C5883A2CE27E /* Pods_Presentation.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +52,7 @@
 		18BA8DEB2613A02E00F20689 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18BA8F2C2613ABCC00F20689 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		2699CE23DA618EE00A4118AB /* Pods-Presentation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Presentation.release.xcconfig"; path = "Target Support Files/Pods-Presentation/Pods-Presentation.release.xcconfig"; sourceTree = "<group>"; };
-		58B8367387EA48C7A291867D /* DotIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotIndicator.swift; sourceTree = "<group>"; };
+		58B831511C3558831DFBF885 /* PageIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageIndicator.swift; sourceTree = "<group>"; };
 		A754ACD62DE2C789833BAD8D /* Pods-Presentation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Presentation.debug.xcconfig"; path = "Target Support Files/Pods-Presentation/Pods-Presentation.debug.xcconfig"; sourceTree = "<group>"; };
 		F5843BD8F492C5883A2CE27E /* Pods_Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,8 +103,7 @@
 				18BA8DEC2613A02E00F20689 /* Resources */,
 				18BA8C042613764000F20689 /* Presentation.h */,
 				18BA8C052613764000F20689 /* Info.plist */,
-				58B8399E9A053E145AFA9883 /* DotIndicator */,
-				58B8367387EA48C7A291867D /* DotIndicator.swift */,
+				58B830A535CDF800075B1953 /* PageIndicator */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -129,11 +128,12 @@
 			path = /Users/apple/Desktop/dev/iOS/task/DonDonn/Common/Presentation/Presentation/Resources;
 			sourceTree = "<absolute>";
 		};
-		58B8399E9A053E145AFA9883 /* DotIndicator */ = {
+		58B830A535CDF800075B1953 /* PageIndicator */ = {
 			isa = PBXGroup;
 			children = (
+				58B831511C3558831DFBF885 /* PageIndicator.swift */,
 			);
-			path = DotIndicator;
+			path = PageIndicator;
 			sourceTree = "<group>";
 		};
 		848D18439B4944BF10C34AA7 /* Pods */ = {
@@ -284,7 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18BA8F2D2613ABCC00F20689 /* Assets.swift in Sources */,
-				58B8347410C4AFAFC97A61B6 /* DotIndicator.swift in Sources */,
+				58B83425E2923644AA9D957C /* PageIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

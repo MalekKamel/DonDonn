@@ -13,7 +13,6 @@ struct HomeView: View {
             VStack(alignment: .trailing) {
                 ScrollView(.vertical, showsIndicators: false) {
                     HomeHeader()
-
                     VStack(alignment: .leading, spacing: 15) {
                         CategoriesListView()
                         MenuListView()
@@ -62,6 +61,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().environmentObject(HomeVM())
+        HomeView().environmentObject(HomePresenterBuilder.build())
     }
 }

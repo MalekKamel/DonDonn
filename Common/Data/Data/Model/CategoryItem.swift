@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import ModelsMapper
 
 public struct CategoryItem: Identifiable {
     public var id: Int
@@ -13,3 +14,13 @@ public struct CategoryItem: Identifiable {
         self.name = name
     }
 }
+
+class CategoryItemMapper: Mapper {
+    typealias I = CategoryItemResponse
+    typealias O = CategoryItem
+
+    func map(_ input: CategoryItemResponse) -> CategoryItem {
+        CategoryItem(id: input.id, name: input.name)
+    }
+}
+

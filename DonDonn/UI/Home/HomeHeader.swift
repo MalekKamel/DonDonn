@@ -21,14 +21,14 @@ struct HomeHeader: View {
 
 struct PromotionsView: View {
     @State var selectedIndex = 0
-    @EnvironmentObject var vm: HomeVM
+    @EnvironmentObject var presenter: HomePresenter
 
     var body: some View {
         ZStack {
-            if !vm.promotions.isEmpty {
+            if !presenter.promotions.isEmpty {
                 GeometryReader { reader in
                     TabView(selection: $selectedIndex) {
-                        ForEach(vm.promotions) { item in
+                        ForEach(presenter.promotions) { item in
                             Image("discount")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
@@ -46,11 +46,11 @@ struct PromotionsView: View {
 
                     Spacer()
 
-                    PageIndicator(numPages: vm.promotions.count, currentPage: $selectedIndex)
+                    PageIndicator(numPages: presenter.promotions.count, currentPage: $selectedIndex)
                             .padding(.bottom, 50)
                 }
             }
-        }.onAppear(perform: vm.loadPromotions)
+        }.onAppear(perform: presenter.loadPromotions)
     }
 }
 
