@@ -54,7 +54,7 @@ class HomePresenter: ObservableObject {
 class HomePresenterBuilder {
 
     static func build() -> HomePresenter {
-        let provider = MoviesRepo.create()
+        let provider = MenuRepo.create()
         let interactor = HomeInteractor(provider: provider)
         return HomePresenter(interactor: interactor)
     }

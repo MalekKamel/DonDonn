@@ -7,11 +7,11 @@ import Foundation
 import RxSwift
 import ModelsMapper
 
-public class MoviesRepo {
+public class MenuRepo {
     let dataSrc: MenuDataSrc
 
-    public static func create() -> MoviesRepo {
-        MoviesRepo(dataSrc: MenuDataSrc(api: menuApi))
+    public static func create() -> MenuRepo {
+        MenuRepo(dataSrc: MenuDataSrc(api: menuApi))
     }
 
     init(dataSrc: MenuDataSrc) {
