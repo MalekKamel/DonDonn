@@ -29,7 +29,7 @@ struct HomeView: View {
                             .background(Color.white)
                             .cornerRadius(20)
                             .offset(y: -35)
-                }
+                }.background(Color(.white))
             }
 
             CartButton().padding()

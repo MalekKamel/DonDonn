@@ -9,28 +9,17 @@ struct MenuListView: View {
     var onItemSelected: (MenuItem) -> Void
 
     var body: some View {
-        VStack(spacing: 100) {
-            ForEach(presenter.menuItems) { data in
-                GeometryReader { reader in
-                    MenuItemView(item: data, onItemSelected: onItemSelected)
-                            .opacity(1)
-                            .onTapGesture {
-
-                            }
-                }
-                        .frame(height: 250)
-                        .simultaneousGesture(DragGesture(minimumDistance: 800)
-                                .onChanged({ _ in
-                                    print("dragging")
-                                }))
+        LazyVStack(spacing: 10) {
+            ForEach(presenter.menuItems) { item in
+                MenuItemView(item: item, onItemSelected: onItemSelected)
             }
-        }
-                .onAppear(perform: presenter.loadMenuItems)
+        }.onAppear(perform: presenter.loadMenuItems)
     }
 }
 
 struct MealsView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuListView { item in }
+        MenuListView { item in
+        }
     }
 }

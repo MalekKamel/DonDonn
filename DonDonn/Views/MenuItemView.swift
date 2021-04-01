@@ -24,22 +24,14 @@ struct MenuItemView: View {
                         .shadow(radius: 10)
             }.edgesIgnoringSafeArea(.top)
 
-
             HStack {
                 Text(item.title)
+                        .foregroundColor(.black)
                         .bold()
                         .padding(.all, 10)
                 Spacer()
             }
                     .padding(.leading, 20)
-
-            HStack {
-                Text(item.description)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .padding(.leading, 30)
-                Spacer()
-            }
 
             HStack {
                 ForEach(0..<item.stars) { item in
@@ -65,8 +57,6 @@ struct MenuItemView: View {
             }
                     .padding(.bottom, 30)
                     .padding(.leading, 10)
-                    .padding(.trailing, 10)
-                    .padding(.leading, 20)
                     .padding(.trailing, 20)
         }
     }
@@ -74,6 +64,7 @@ struct MenuItemView: View {
 
 struct MenuItemView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuItemView(item: Fake.mealItems[0]) { item in }
+        MenuItemView(item: Fake.mealItems[0]) { item in
+        }
     }
 }
