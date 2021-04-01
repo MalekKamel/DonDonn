@@ -18,6 +18,13 @@ struct CategoriesListView: View {
                                     self.selectedItem = item
                                 }
                             }
+                            .onAppear {
+                                // select first item by default
+                                if selectedItem != nil {
+                                    return
+                                }
+                                selectedItem = presenter.categoryItems.first
+                            }
                 }
             }
         }
