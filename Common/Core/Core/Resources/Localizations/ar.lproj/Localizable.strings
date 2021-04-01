@@ -1,0 +1,72 @@
+
+"adolphin" = "Adolphin";
+
+"app_name" = "الدولفين";
+
+"available" = "متوفر";
+
+"can_not_be_less_than" = "يجب ألا يقل عن";
+
+"can_not_be_more_than" = "يجب ألا يزيد عن";
+
+"cancel" = "إلغاء";
+
+"cash_in_out" = "كاش";
+
+"categories" = "الفئات";
+
+"choose_between_multiple_modules" = "يمكنك الاختيار بين الفئات المتعددة لنقاط البيع";
+
+"discount" = "الخصم";
+
+"email" = "البريد الإلكتروني";
+
+"forgot_password" = "هل نسيت كلمة السر؟";
+
+"hints" = "مساعدة";
+
+"hold_orders" = "تعليق الطلبات";
+
+"home" = "الرئيسية";
+
+"Invalid" = "غير صحيح";
+
+"Invalid e-mail Address" = "بريد إكتروني غير صحيح";
+
+"keep_me_signed" = "احتفظ بتسجيل الدخول";
+
+"lock" = "قفل";
+
+"manage_products" = "إدارة المنتجات";
+
+"must_be" = "يجب أن يكون ";
+
+"not_matching" = "غير مطابق";
+
+"online" = "أونلاين";
+
+"OOPS! something went wrong" = "للأسف ، حدثت مشكلة غير متوقعة ، الرجاء المحاولة لاحقا.";
+
+"order_no" = "أوردر رقم";
+
+"password" = "كلمة المرور";
+
+"proceed" = "المتابعة";
+
+"product" = "المنتج";
+
+"register_now" = "سجل الآن";
+
+"Required" = "مطلوب";
+
+"sar" = "ر.س";
+
+"sign_in" = "تسجيل الدخول";
+
+"subtotal" = "الصافي";
+
+"tax" = "الضريبة";
+
+"total" = "المجموع";
+
+"transactions" = "المعاملات";

@@ -1,0 +1,63 @@
+PODS:
+  - Alamofire (5.4.1)
+  - ModelsMapper (0.1.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - RxRequester/Core (0.4.0):
+    - RxSwift (~> 5.0)
+  - RxRequester/Moya (0.4.0):
+    - Moya/RxSwift (~> 14.0.0-beta.5)
+    - RxRequester/Core
+  - RxSwift (5.1.2)
+  - SDWebImage (5.10.4):
+    - SDWebImage/Core (= 5.10.4)
+  - SDWebImage/Core (5.10.4)
+  - SDWebImageSwiftUI (2.0.2):
+    - SDWebImage (~> 5.10)
+  - SwiftGen (6.1.0)
+  - SwiftLint (0.43.1)
+  - SwiftMessages (9.0.1):
+    - SwiftMessages/App (= 9.0.1)
+  - SwiftMessages/App (9.0.1)
+
+DEPENDENCIES:
+  - ModelsMapper
+  - Moya/RxSwift (~> 14.0.0-beta.5)
+  - RxRequester/Moya (~> 0.4.0)
+  - RxSwift (~> 5.0)
+  - SDWebImageSwiftUI
+  - SwiftGen (= 6.1.0)
+  - SwiftLint
+  - SwiftMessages
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - ModelsMapper
+    - Moya
+    - RxRequester
+    - RxSwift
+    - SDWebImage
+    - SDWebImageSwiftUI
+    - SwiftGen
+    - SwiftLint
+    - SwiftMessages
+
+SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  ModelsMapper: 7c7f748889e5583c9c56002d67abb217e01d08e4
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  RxRequester: fbe7404768d7bb40481ad77b14d04c30961af592
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
+  SDWebImageSwiftUI: 8a3923c95108312b03a599ec1498754af55a6819
+  SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  SwiftMessages: b71f53eb919887c0273bf43cbc002bd4f0cfb3d6
+
+PODFILE CHECKSUM: 8dda4527477f222c3ea1868396e61b959e0397bf
+
+COCOAPODS: 1.10.0
