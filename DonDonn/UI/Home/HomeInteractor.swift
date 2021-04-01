@@ -7,9 +7,9 @@ import Combine
 import RxCombine
 
 class HomeInteractor {
-    private let provider: MenuRepo
+    private let provider: MenuProvider
 
-    init(provider: MenuRepo) {
+    init(provider: MenuProvider) {
         self.provider = provider
     }
 

@@ -7,11 +7,11 @@ import Foundation
 import RxSwift
 import ModelsMapper
 
-public class MenuRepo {
+public class MenuProvider {
     let dataSrc: MenuDataSrc
 
-    public static func create() -> MenuRepo {
-        MenuRepo(dataSrc: MenuDataSrc(api: menuApi))
+    public static func create() -> MenuProvider {
+        MenuProvider(dataSrc: MenuDataSrc(api: menuApi))
     }
 
     init(dataSrc: MenuDataSrc) {
