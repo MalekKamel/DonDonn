@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State var selectedMenuItems = [MenuItem]()
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -15,7 +16,13 @@ struct HomeView: View {
                     HomeHeader()
                     VStack(alignment: .leading, spacing: 15) {
                         CategoriesListView()
-                        MenuListView()
+                        MenuListView { item in
+                            if let index = selectedMenuItems.firstIndex(of: item) {
+                                selectedMenuItems.remove(at: index)
+                                return
+                            }
+                            selectedMenuItems.append(item)
+                        }
                     }
                             .padding(.top, 25)
                             .padding(.horizontal)
@@ -24,6 +31,7 @@ struct HomeView: View {
                             .offset(y: -35)
                 }
             }
+
             CartButton().padding()
         }
     }
@@ -42,7 +50,9 @@ struct HomeView: View {
                         .frame(width: 30, height: 30)
                         .aspectRatio(contentMode: .fill)
 
-                OrderNoBadgeView().offset(x: 15, y: -15)
+                if !selectedMenuItems.isEmpty {
+                    OrderNoBadgeView().offset(x: 15, y: -15)
+                }
             }
         }
     }
@@ -53,7 +63,7 @@ struct HomeView: View {
                     .frame(width: 25, height: 25)
                     .foregroundColor(.green)
                     .shadow(radius: 10)
-            Text("10")
+            Text("\(selectedMenuItems.count)")
                     .foregroundColor(.white)
         }
     }

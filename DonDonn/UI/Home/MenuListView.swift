@@ -6,12 +6,13 @@ import SwiftUI
 
 struct MenuListView: View {
     @EnvironmentObject var presenter: HomePresenter
+    var onItemSelected: (MenuItem) -> Void
 
     var body: some View {
         VStack(spacing: 100) {
             ForEach(presenter.menuItems) { data in
                 GeometryReader { reader in
-                    MenuItemView(item: data)
+                    MenuItemView(item: data, onItemSelected: onItemSelected)
                             .opacity(1)
                             .onTapGesture {
 
@@ -30,6 +31,6 @@ struct MenuListView: View {
 
 struct MealsView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuListView()
+        MenuListView { item in }
     }
 }

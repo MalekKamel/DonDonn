@@ -10,6 +10,8 @@ import SDWebImageSwiftUI
 
 struct MenuItemView: View {
     @State var item: MenuItem
+    @State var isSelected: Bool = false
+    var onItemSelected: (MenuItem) -> Void
 
     var body: some View {
         VStack {
@@ -48,13 +50,14 @@ struct MenuItemView: View {
                 Spacer()
 
                 Button(action: {
-                    print("Round Action")
+                    isSelected = !isSelected
+                    onItemSelected(item)
                 }) {
                     Text(item.price)
                             .font(.subheadline)
                             .bold()
                             .frame(width: 70, height: 40)
-                            .background(Color(.black))
+                            .background(isSelected ? Color(.green) : Color(.black))
                             .foregroundColor(.white)
                             .cornerRadius(20)
                 }
@@ -71,6 +74,6 @@ struct MenuItemView: View {
 
 struct MenuItemView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuItemView(item: Fake.mealItems[0])
+        MenuItemView(item: Fake.mealItems[0]) { item in }
     }
 }

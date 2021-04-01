@@ -5,7 +5,7 @@
 import Foundation
 import ModelsMapper
 
-public struct MenuItem: Identifiable {
+public struct MenuItem: Identifiable, Equatable {
     public var id: Int
     public var image: String
     public var title: String
@@ -24,6 +24,10 @@ public struct MenuItem: Identifiable {
         self.description = description
         self.stars = stars
         self.price = price
+    }
+
+    public static func ==(lhs: MenuItem, rhs: MenuItem) -> Bool {
+        lhs.id == rhs.id
     }
 }
 
