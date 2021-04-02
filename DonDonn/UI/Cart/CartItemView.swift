@@ -31,8 +31,7 @@ struct CartItemView: View {
 
                     Text("x")
                 }
-            }
-                    .padding(.leading, 5)
+            }.padding(.leading, 5)
         }.padding(.bottom)
     }
 
