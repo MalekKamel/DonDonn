@@ -6,6 +6,15 @@ DonDonn app represents a real world app example. it provides a fairly complex se
  
  <img src="https://github.com/ShabanKamell/DonDonn/blob/master/blob/modular-arch-diagram.png?raw=true" height="600">
  
+ 
+ ## Stack:
+ - [ ] SwiftUI
+ - [ ] Combine
+ - [ ] RxSwift
+ - [ ] RxMoya
+ - [ ] VIPER
+ - [ ] Modular architecture
+
  ## README
 
 Each module has its own `README.md` file that documents the module.
