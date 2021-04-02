@@ -9,6 +9,7 @@ class HomePresenter: ObservableObject {
     @Published private(set) var categoryItems = [CategoryItem]()
     @Published private(set) var promotions = [PromotionItem]()
     private var cancellables = Set<AnyCancellable>()
+    @Published private(set) var state: LoadingState<[MenuItem]> = .idle
 
     private var interactor: HomeInteractor
 
@@ -28,12 +29,14 @@ class HomePresenter: ObservableObject {
     }
 
     func loadMenuItems() {
+        state = .loading
         interactor.menu()
                 .catch { _ in
                     Empty<[MenuItem], Never>()
                 }
-                .sink(receiveValue: { value in
-                    self.menuItems = value
+                .sink(receiveValue: { [weak self] value in
+                    self?.menuItems = value
+                    self?.state = .loaded(value)
                 })
                 .store(in: &cancellables)
     }

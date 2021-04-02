@@ -8,6 +8,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State var selectedMenuItems = [MenuItem]()
+    @EnvironmentObject var presenter: HomePresenter
 
     @State private var destination: Destination? = nil
 
@@ -16,7 +17,16 @@ struct HomeView: View {
     }
 
     var body: some View {
-        ContentView()
+        switch presenter.state {
+        case .idle:
+            Color.clear.onAppear(perform: presenter.loadMenuItems)
+        case .loading:
+            Placeholder()
+        case .failed(let error):
+            Text(error.localizedDescription)
+        case .loaded:
+            ContentView()
+        }
     }
 
     private func ContentView() -> some View {
