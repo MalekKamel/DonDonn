@@ -16,6 +16,10 @@ struct HomeView: View {
     }
 
     var body: some View {
+        ContentView()
+    }
+
+    private func ContentView() -> some View {
         ZStack(alignment: .bottomTrailing) {
             VStack(alignment: .trailing) {
                 ScrollView(.vertical, showsIndicators: false) {
@@ -38,34 +42,16 @@ struct HomeView: View {
                 }.background(Color(.white))
             }
 
-            CartButton().padding()
+            CartButton(selectedMenuItems: selectedMenuItems) {
+                self.destination = .cart
+            }.padding()
 
             NavigationLinks()
         }.navigationBarHidden(true)
     }
 
-    private func CartButton() -> some View {
-        Button(action: {
-            if selectedMenuItems.isEmpty {
-                return
-            }
-            self.destination = .cart
-        }) {
-            ZStack(alignment: .center) {
-                Circle()
-                        .frame(width: 50, height: 50)
-                        .foregroundColor(.white)
-                        .shadow(radius: 10)
-                Image("shopping-cart")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .aspectRatio(contentMode: .fill)
-
-                if !selectedMenuItems.isEmpty {
-                    OrderNoBadgeView().offset(x: 15, y: -15)
-                }
-            }
-        }
+    private func Placeholder() -> some View {
+        ContentView().redacted(reason: .placeholder)
     }
 
     private func NavigationLinks() -> some View {
@@ -75,17 +61,6 @@ struct HomeView: View {
                     tag: .cart, selection: $destination) {
                 EmptyView()
             }
-        }
-    }
-
-    private func OrderNoBadgeView() -> some View {
-        ZStack {
-            Circle()
-                    .frame(width: 25, height: 25)
-                    .foregroundColor(.green)
-                    .shadow(radius: 10)
-            Text("\(selectedMenuItems.count)")
-                    .foregroundColor(.white)
         }
     }
 }
