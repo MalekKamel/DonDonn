@@ -9,6 +9,12 @@ import SwiftUI
 struct HomeView: View {
     @State var selectedMenuItems = [MenuItem]()
 
+    @State private var destination: Destination? = nil
+
+    private enum Destination {
+        case cart
+    }
+
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             VStack(alignment: .trailing) {
@@ -33,12 +39,17 @@ struct HomeView: View {
             }
 
             CartButton().padding()
-        }
+
+            NavigationLinks()
+        }.navigationBarHidden(true)
     }
 
     private func CartButton() -> some View {
         Button(action: {
-            print("Round Action")
+            if selectedMenuItems.isEmpty {
+                return
+            }
+            self.destination = .cart
         }) {
             ZStack(alignment: .center) {
                 Circle()
@@ -53,6 +64,16 @@ struct HomeView: View {
                 if !selectedMenuItems.isEmpty {
                     OrderNoBadgeView().offset(x: 15, y: -15)
                 }
+            }
+        }
+    }
+
+    private func NavigationLinks() -> some View {
+        Group {
+            NavigationLink(
+                    destination: CartRouter().makeCartView(items: selectedMenuItems),
+                    tag: .cart, selection: $destination) {
+                EmptyView()
             }
         }
     }
