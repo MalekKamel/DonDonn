@@ -13,7 +13,7 @@ struct MenuListView: View {
             ForEach(presenter.menuItems) { item in
                 MenuItemView(item: item, onItemSelected: onItemSelected)
             }
-        }.onAppear(perform: presenter.loadMenuItems)
+        }
     }
 }
 

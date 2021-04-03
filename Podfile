@@ -10,11 +10,7 @@ def core_pods
 
   pod 'ModelsMapper'
 
-  pod 'RxSwift', '~> 5.0'
-  pod 'RxRequester/Moya', '~> 0.4.0'
-  pod 'Moya/RxSwift', '~> 14.0.0-beta.5'
-
-  pod 'RxCombine'
+  pod 'Moya/Combine', '~> 15.0.0-alpha.1'
 end
 
 def data_pods

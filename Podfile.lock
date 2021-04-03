@@ -1,22 +1,10 @@
 PODS:
   - Alamofire (5.4.1)
   - ModelsMapper (0.1.0)
-  - Moya/Core (14.0.0):
-    - Alamofire (~> 5.0)
-  - Moya/RxSwift (14.0.0):
+  - Moya/Combine (15.0.0-alpha.1):
     - Moya/Core
-    - RxSwift (~> 5.0)
-  - RxCombine (1.6.0):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.1.1):
-    - RxSwift (~> 5)
-  - RxRequester/Core (0.4.0):
-    - RxSwift (~> 5.0)
-  - RxRequester/Moya (0.4.0):
-    - Moya/RxSwift (~> 14.0.0-beta.5)
-    - RxRequester/Core
-  - RxSwift (5.1.2)
+  - Moya/Core (15.0.0-alpha.1):
+    - Alamofire (~> 5.0)
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
   - SDWebImage/Core (5.10.4)
@@ -30,10 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - ModelsMapper
-  - Moya/RxSwift (~> 14.0.0-beta.5)
-  - RxCombine
-  - RxRequester/Moya (~> 0.4.0)
-  - RxSwift (~> 5.0)
+  - Moya/Combine (~> 15.0.0-alpha.1)
   - SDWebImageSwiftUI
   - SwiftGen (= 6.1.0)
   - SwiftLint
@@ -44,10 +29,6 @@ SPEC REPOS:
     - Alamofire
     - ModelsMapper
     - Moya
-    - RxCombine
-    - RxRelay
-    - RxRequester
-    - RxSwift
     - SDWebImage
     - SDWebImageSwiftUI
     - SwiftGen
@@ -57,17 +38,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   ModelsMapper: 7c7f748889e5583c9c56002d67abb217e01d08e4
-  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
-  RxCombine: 81552341b3239e99d5ffea4e48bf11b3f9b638c3
-  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxRequester: fbe7404768d7bb40481ad77b14d04c30961af592
-  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  Moya: 101c94dfb29289736ecd20fa6e82bea665e0671b
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SDWebImageSwiftUI: 8a3923c95108312b03a599ec1498754af55a6819
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   SwiftMessages: b71f53eb919887c0273bf43cbc002bd4f0cfb3d6
 
-PODFILE CHECKSUM: 8b9686c1305a510072bb27be28ae008343241e36
+PODFILE CHECKSUM: a20c2370a0a4ebbf2f92dc3b98789c1bd0f2de17
 
 COCOAPODS: 1.10.0

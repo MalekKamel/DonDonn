@@ -4,7 +4,7 @@
 
 import Foundation
 import Combine
-import RxCombine
+import Moya
 
 class HomeInteractor {
     private let provider: MenuProvider
@@ -13,15 +13,15 @@ class HomeInteractor {
         self.provider = provider
     }
 
-    func promotions() -> AnyPublisher<[PromotionItem], Swift.Error> {
-        provider.promotions().publisher
+    func promotions() -> AnyPublisher<[PromotionItem], MoyaError> {
+        provider.promotions()
     }
 
-    func categories() -> AnyPublisher<[CategoryItem], Swift.Error> {
-        provider.categories().publisher
+    func categories() -> AnyPublisher<[CategoryItem], MoyaError> {
+        provider.categories()
     }
 
-    func menu() -> AnyPublisher<[MenuItem], Swift.Error> {
-        provider.menu().publisher
+    func menu() -> AnyPublisher<[MenuItem], MoyaError> {
+        provider.menu()
     }
 }
