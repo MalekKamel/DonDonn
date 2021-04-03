@@ -13,10 +13,10 @@ struct CategoryView: View {
             Text(item.name)
                     .font(.system(size: 22))
                     .fontWeight(isSelected ? .bold : .none)
-                    .foregroundColor(Color(isSelected ? "mainfont" : "subfont"))
+                    .foregroundColor(Color(isSelected ? Asset.Colors.mainfont.name : Asset.Colors.subfont.name))
 
             Capsule()
-                    .fill(Color("mainfont"))
+                    .fill(Color(Asset.Colors.mainfont.name))
                     .frame(width: 30, height: 4)
                     .opacity(isSelected ? 1 : 0)
         }

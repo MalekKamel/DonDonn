@@ -3,6 +3,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct HomeHeader: View {
     var body: some View {
@@ -29,7 +30,7 @@ struct PromotionsView: View {
                 GeometryReader { reader in
                     TabView(selection: $selectedIndex) {
                         ForEach(presenter.promotions) { item in
-                            Image("discount")
+                            AnimatedImage(url: URL(string: item.image))
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: reader.frame(in: .global).maxX)

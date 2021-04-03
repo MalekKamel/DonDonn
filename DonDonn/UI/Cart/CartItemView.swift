@@ -21,7 +21,7 @@ struct CartItemView: View {
             Text(item.price)
 
             Button(action: {
-                print("Round Action")
+
             }) {
                 ZStack(alignment: .center) {
                     Circle()

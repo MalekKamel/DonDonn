@@ -20,7 +20,7 @@ struct CartButton: View {
                         .frame(width: 50, height: 50)
                         .foregroundColor(.white)
                         .shadow(radius: 10)
-                Image("shopping-cart")
+                Image(Asset.Assets.shoppingCart.name)
                         .resizable()
                         .frame(width: 30, height: 30)
                         .aspectRatio(contentMode: .fill)
