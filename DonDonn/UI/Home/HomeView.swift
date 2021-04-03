@@ -52,7 +52,7 @@ struct HomeView: View {
                 }.background(Color(.white))
             }
 
-            CartButton(selectedMenuItems: selectedMenuItems) {
+            CartButton(selectedMenuItems: $selectedMenuItems) {
                 self.destination = .cart
             }.padding()
 

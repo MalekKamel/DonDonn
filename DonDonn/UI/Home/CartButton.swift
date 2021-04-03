@@ -5,7 +5,7 @@
 import SwiftUI
 
 struct CartButton: View {
-    @State var selectedMenuItems = [MenuItem]()
+    @Binding var selectedMenuItems: [MenuItem]
     let action: () -> Void
 
     var body: some View {
