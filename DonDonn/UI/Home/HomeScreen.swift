@@ -6,30 +6,16 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct HomeScreen: AppScreen {
+    @ObservedObject var presenter: HomePresenter
     @State var selectedMenuItems = [MenuItem]()
-    @EnvironmentObject var presenter: HomePresenter
-
     @State private var destination: Destination? = nil
 
     private enum Destination {
         case cart
     }
 
-    var body: some View {
-        switch presenter.state {
-        case .idle:
-            Color.clear.onAppear(perform: presenter.loadMenuItems)
-        case .loading:
-            Placeholder()
-        case .failed(let error):
-            Text(error.localizedDescription)
-        case .loaded:
-            ContentView()
-        }
-    }
-
-    private func ContentView() -> some View {
+    func ContentView() -> AnyView {
         ZStack(alignment: .bottomTrailing) {
             VStack(alignment: .trailing) {
                 ScrollView(.vertical, showsIndicators: false) {
@@ -57,18 +43,23 @@ struct HomeView: View {
             }.padding()
 
             NavigationLinks()
-        }.navigationBarHidden(true)
+        }.navigationBarHidden(true).eraseToAnyView()
     }
 
-    private func Placeholder() -> some View {
-        ContentView().redacted(reason: .placeholder)
+    func onInitialViewAppear() {
+        presenter.loadMenuItems()
+    }
+
+    func LoadingView() -> AnyView {
+        ContentView().redacted(reason: .placeholder).eraseToAnyView()
     }
 
     private func NavigationLinks() -> some View {
         Group {
             NavigationLink(
                     destination: CartRouter().makeCartView(items: selectedMenuItems),
-                    tag: .cart, selection: $destination) {
+                    tag: .cart,
+                    selection: $destination) {
                 EmptyView()
             }
         }
@@ -77,6 +68,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().environmentObject(HomePresenterBuilder.build())
+        HomeScreen(presenter: HomePresenterBuilder.build()).environmentObject(HomePresenterBuilder.build())
     }
 }

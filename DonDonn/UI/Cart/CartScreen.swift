@@ -6,22 +6,24 @@
 
 import SwiftUI
 
-struct CartView: View {
+struct CartScreen: AppScreen {
+    @ObservedObject var presenter: CartPresenter
     var menuItems = [MenuItem]()
 
-    var body: some View {
+    func ContentView() -> AnyView {
         List {
             ForEach(menuItems) { item in
                 CartItemView(item: item).removeListSeparator()
             }
         }.background(Color(.white))
                 .padding()
+        .eraseToAnyView()
     }
 
 }
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView(menuItems: Fake.mealItems)
+        CartScreen(presenter: CartPresenterBuilder.build(), menuItems: Fake.mealItems)
     }
 }

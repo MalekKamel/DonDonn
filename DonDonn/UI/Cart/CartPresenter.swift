@@ -4,49 +4,12 @@
 
 import Combine
 
-class CartPresenter: ObservableObject {
-    @Published private(set) var menuItems = [MenuItem]()
-    @Published private(set) var categoryItems = [CategoryItem]()
-    @Published private(set) var promotions = [PromotionItem]()
-    private var cancellables = Set<AnyCancellable>()
+class CartPresenter: AppPresenter {
+    @Published public var state: ScreenState = .idle
+    private var interactor: CartInteractor
 
-    private var interactor: HomeInteractor
-
-    init(interactor: HomeInteractor) {
+    init(interactor: CartInteractor) {
         self.interactor = interactor
-    }
-
-    func loadCategories() {
-        interactor.categories()
-                .catch { _ in
-                    Empty<[CategoryItem], Never>()
-                }
-                .sink(receiveValue: { value in
-                    self.categoryItems = value
-                })
-                .store(in: &cancellables)
-    }
-
-    func loadMenuItems() {
-        interactor.menu()
-                .catch { _ in
-                    Empty<[MenuItem], Never>()
-                }
-                .sink(receiveValue: { value in
-                    self.menuItems = value
-                })
-                .store(in: &cancellables)
-    }
-
-    func loadPromotions() {
-        interactor.promotions()
-                .catch { _ in
-                    Empty<[PromotionItem], Never>()
-                }
-                .sink(receiveValue: { value in
-                    self.promotions = value
-                })
-                .store(in: &cancellables)
     }
 
 }
@@ -55,7 +18,7 @@ class CartPresenterBuilder {
 
     static func build() -> CartPresenter {
         let provider = MenuProvider.create()
-        let interactor = HomeInteractor(provider: provider)
+        let interactor = CartInteractor(provider: provider)
         return CartPresenter(interactor: interactor)
     }
 
