@@ -4,13 +4,13 @@
 
 import Combine
 
-class HomePresenter: ObservableObject {
+class HomePresenter: AppPresenter {
+    @Published public var state: ScreenState = .idle
+
     @Published private(set) var menuItems = [MenuItem]()
     @Published private(set) var categoryItems = [CategoryItem]()
     @Published private(set) var promotions = [PromotionItem]()
     private var cancellables = Set<AnyCancellable>()
-    @Published private(set) var state: LoadingState<[MenuItem]> = .idle
-
     private var interactor: HomeInteractor
 
     init(interactor: HomeInteractor) {
@@ -36,7 +36,7 @@ class HomePresenter: ObservableObject {
                 }
                 .sink(receiveValue: { [weak self] value in
                     self?.menuItems = value
-                    self?.state = .loaded(value)
+                    self?.state = .loaded
                 })
                 .store(in: &cancellables)
     }
