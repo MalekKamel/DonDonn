@@ -23,7 +23,7 @@ public extension AppScreen {
     }
 
     func BodyView() -> AnyView {
-        switch presenter.state {
+        switch presenter.screenState {
         case .idle:
             return  InitialView().onAppear(perform: onInitialViewAppear).eraseToAnyView()
         case .loading:
@@ -41,6 +41,7 @@ public extension AppScreen {
 
     func onInitialViewAppear() {
         // Default implementation
+        presenter.screenState = .loaded
     }
 
     func LoadingView() -> AnyView {

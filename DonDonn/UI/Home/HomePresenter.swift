@@ -5,7 +5,7 @@
 import Combine
 
 class HomePresenter: AppPresenter {
-    @Published public var state: ScreenState = .idle
+    @Published public var screenState: ScreenState = .idle
     public var cancellables = Set<AnyCancellable>()
 
     @Published private(set) var menuItems = [MenuItem]()
@@ -24,7 +24,11 @@ class HomePresenter: AppPresenter {
     }
 
     func loadMenuItems() {
-        request(interactor.menu()) { [weak self] response in
+        request(interactor.menu(),
+                onError: { [weak self] error in
+                    self?.screenState = .failed(error)
+                }) { [weak self] response in
+            self?.screenState = .loaded
             self?.menuItems = response
         }
     }

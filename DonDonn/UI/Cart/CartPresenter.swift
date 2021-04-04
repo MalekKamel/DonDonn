@@ -5,7 +5,7 @@
 import Combine
 
 class CartPresenter: AppPresenter {
-    @Published public var state: ScreenState = .idle
+    @Published public var screenState: ScreenState = .idle
     public var cancellables = Set<AnyCancellable>()
 
     private var interactor: CartInteractor
