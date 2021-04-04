@@ -19,8 +19,9 @@ class HomePresenter: AppPresenter {
 
     func loadCategories() {
         interactor.categories()
-                .catch { _ in
-                    Empty<[CategoryItem], Never>()
+                .catch { error -> Empty<[CategoryItem], Never> in
+                    self.state = .failed(error)
+                    return Empty<[CategoryItem], Never>()
                 }
                 .sink(receiveValue: { value in
                     self.categoryItems = value
@@ -31,8 +32,9 @@ class HomePresenter: AppPresenter {
     func loadMenuItems() {
         state = .loading
         interactor.menu()
-                .catch { _ in
-                    Empty<[MenuItem], Never>()
+                .catch { error -> Empty<[MenuItem], Never> in
+                    self.state = .failed(error)
+                    return Empty<[MenuItem], Never>()
                 }
                 .sink(receiveValue: { [weak self] value in
                     self?.menuItems = value
@@ -43,8 +45,9 @@ class HomePresenter: AppPresenter {
 
     func loadPromotions() {
         interactor.promotions()
-                .catch { _ in
-                    Empty<[PromotionItem], Never>()
+                .catch { error -> Empty<[PromotionItem], Never> in
+                    self.state = .failed(error)
+                    return Empty<[PromotionItem], Never>()
                 }
                 .sink(receiveValue: { value in
                     self.promotions = value
