@@ -129,7 +129,7 @@
 				58B830A535CDF800075B1953 /* PageIndicator */,
 				58B833E7D608603F52D67434 /* AsyncContentView */,
 				58B8389C9AAA669FEAC0230D /* Extensions */,
-				58B8334C01C8ACA8C08AD830 /* ViewModel */,
+				58B8334C01C8ACA8C08AD830 /* Presenter */,
 				58B83D9F49F7841C442C20CB /* AppScreen */,
 				58B831DC44CC834FD99BFB95 /* State */,
 			);
@@ -173,12 +173,12 @@
 			path = State;
 			sourceTree = "<group>";
 		};
-		58B8334C01C8ACA8C08AD830 /* ViewModel */ = {
+		58B8334C01C8ACA8C08AD830 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				58B832453AB82BD68C19D4A0 /* AppPresenter.swift */,
 			);
-			path = ViewModel;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		58B833E7D608603F52D67434 /* AsyncContentView */ = {
