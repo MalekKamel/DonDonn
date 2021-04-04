@@ -4,13 +4,13 @@
 
 import Combine
 
-class HomePresenter: AppPresenterProtocol {
+class HomePresenter: AppPresenter {
     @Published public var state: ScreenState = .idle
+    public var cancellables = Set<AnyCancellable>()
 
     @Published private(set) var menuItems = [MenuItem]()
     @Published private(set) var categoryItems = [CategoryItem]()
     @Published private(set) var promotions = [PromotionItem]()
-    public var cancellables = Set<AnyCancellable>()
     private var interactor: HomeInteractor
 
     init(interactor: HomeInteractor) {

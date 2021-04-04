@@ -6,12 +6,12 @@ import SwiftUI
 import Combine
 import Data
 
-public protocol AppPresenterProtocol: ObservableObject {
+public protocol AppPresenter: ObservableObject {
     var state: ScreenState { get set }
     var cancellables: Set<AnyCancellable> { get set }
 }
 
-public extension AppPresenterProtocol {
+public extension AppPresenter {
 
     func request<T>(_ api: AnyPublisher<T, Swift.Error>, completion: @escaping (T) -> Void) {
         api.catch { error -> Empty<T, Never> in

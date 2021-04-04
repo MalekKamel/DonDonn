@@ -5,7 +5,7 @@
 import SwiftUI
 
 public protocol AppScreen: View {
-    associatedtype Presenter: AppPresenterProtocol
+    associatedtype Presenter: AppPresenter
     var presenter: Presenter { get set }
 
     func BodyView() -> AnyView

@@ -4,10 +4,11 @@
 
 import Combine
 
-class CartPresenter: AppPresenterProtocol {
+class CartPresenter: AppPresenter {
     @Published public var state: ScreenState = .idle
-    private var interactor: CartInteractor
     public var cancellables = Set<AnyCancellable>()
+
+    private var interactor: CartInteractor
 
     init(interactor: CartInteractor) {
         self.interactor = interactor
