@@ -40,6 +40,7 @@ public extension AppScreen {
     }
 
     func onInitialViewAppear() {
+        // Default implementation
     }
 
     func LoadingView() -> AnyView {
