@@ -24,11 +24,7 @@ class HomePresenter: AppPresenter {
     }
 
     func loadMenuItems() {
-        request(interactor.menu(),
-                onError: { [weak self] error in
-                    self?.screenState = .failed(error)
-                }) { [weak self] response in
-            self?.screenState = .loaded
+        request(interactor.menu(), updateScreenState: true) { [weak self] response in
             self?.menuItems = response
         }
     }
