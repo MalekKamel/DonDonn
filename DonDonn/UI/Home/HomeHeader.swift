@@ -32,7 +32,7 @@ struct PromotionsView: View {
                         ForEach(vm.promotions) { item in
                             AnimatedImage(url: URL(string: item.image))
                                     .resizable()
-                                    .aspectRatio(contentMode: .fill)
+                                    .aspectRatio(contentMode: .fit)
                                     .frame(width: reader.frame(in: .global).maxX)
                         }
                     }
@@ -41,9 +41,10 @@ struct PromotionsView: View {
 
                 VStack {
                     Text("DonDonn")
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                             .font(.system(size: 25))
                             .padding(.top, 50)
+                            .shadow(color: .black, radius: 20)
 
                     Spacer()
 
