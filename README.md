@@ -14,7 +14,7 @@ DonDonn app represents a real world app example. it provides a fairly complex se
  - [ ] Combine
  - [ ] RxSwift
  - [ ] RxMoya
- - [ ] VIPER
+ - [ ] MVVM
  - [ ] Modular architecture
 
  ## README
