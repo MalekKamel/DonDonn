@@ -22,14 +22,14 @@ struct HomeHeader: View {
 
 struct PromotionsView: View {
     @State var selectedIndex = 0
-    @EnvironmentObject var presenter: HomePresenter
+    @EnvironmentObject var vm: HomeVM
 
     var body: some View {
         ZStack {
-            if !presenter.promotions.isEmpty {
+            if !vm.promotions.isEmpty {
                 GeometryReader { reader in
                     TabView(selection: $selectedIndex) {
-                        ForEach(presenter.promotions) { item in
+                        ForEach(vm.promotions) { item in
                             AnimatedImage(url: URL(string: item.image))
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
@@ -47,11 +47,11 @@ struct PromotionsView: View {
 
                     Spacer()
 
-                    PageIndicator(numPages: presenter.promotions.count, currentPage: $selectedIndex)
+                    PageIndicator(numPages: vm.promotions.count, currentPage: $selectedIndex)
                             .padding(.bottom, 50)
                 }
             }
-        }.onAppear(perform: presenter.loadPromotions)
+        }.onAppear(perform: vm.loadPromotions)
     }
 }
 

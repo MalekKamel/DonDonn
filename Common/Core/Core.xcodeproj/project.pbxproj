@@ -15,6 +15,7 @@
 		18BA8F0B2613ABB900F20689 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA8F092613ABB800F20689 /* Assets.swift */; };
 		18BA8F0C2613ABB900F20689 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA8F0A2613ABB800F20689 /* L10n.swift */; };
 		29E730CF782C6E567A31DAA4 /* Pods_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F584CF6137ABD47A5D6FF5 /* Pods_Core.framework */; };
+		58B8308CF6DA6A3643C9292C /* CombineAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B83DE7997A8A9B0114F68A /* CombineAlias.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		18BA8F092613ABB800F20689 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		18BA8F0A2613ABB800F20689 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		28D97C12CB14767ACE8BB78F /* Pods-Core.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.debug.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.debug.xcconfig"; sourceTree = "<group>"; };
+		58B83DE7997A8A9B0114F68A /* CombineAlias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineAlias.swift; sourceTree = "<group>"; };
 		80F584CF6137ABD47A5D6FF5 /* Pods_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 				18BA8DE226139FDE00F20689 /* Resources */,
 				18BA8BD2261375F700F20689 /* Core.h */,
 				18BA8BD3261375F700F20689 /* Info.plist */,
+				58B833CBF0977DD6FA909DFD /* Extensions */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -133,6 +136,14 @@
 			);
 			name = Pods;
 			path = ../../Pods;
+			sourceTree = "<group>";
+		};
+		58B833CBF0977DD6FA909DFD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				58B83DE7997A8A9B0114F68A /* CombineAlias.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +285,7 @@
 			files = (
 				18BA8F0C2613ABB900F20689 /* L10n.swift in Sources */,
 				18BA8F0B2613ABB900F20689 /* Assets.swift in Sources */,
+				58B8308CF6DA6A3643C9292C /* CombineAlias.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

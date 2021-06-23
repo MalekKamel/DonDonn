@@ -4,8 +4,8 @@
 //
 
 import Foundation
+import Combine
 import Moya
-import RxSwift
 
 class MenuDataSrc {
     let api: MoyaProvider<MenuApi>
@@ -14,16 +14,16 @@ class MenuDataSrc {
         self.api = api
     }
 
-    func promotions() -> Single<[PromotionItemResponse]> {
-        api.rx.request(.promotions).mapItem()
+    func promotions() -> AnyPublisher<[PromotionItemResponse], MoyaError> {
+        api.requestPublisher(.promotions).map([PromotionItemResponse].self, failsOnEmptyData: false)
     }
 
-    func categories() -> Single<[CategoryItemResponse]> {
-        api.rx.request(.categories).mapItem()
+    func categories() -> AnyPublisher<[CategoryItemResponse], MoyaError> {
+        api.requestPublisher(.categories).map([CategoryItemResponse].self, failsOnEmptyData: false)
     }
 
-    func menu() -> Single<[MenuItemResponse]> {
-        api.rx.request(.menu).mapItem()
+        func menu() -> AnyPublisher<[MenuItemResponse], MoyaError> {
+        api.requestPublisher(.menu).map([MenuItemResponse].self, failsOnEmptyData: false)
     }
 
 }

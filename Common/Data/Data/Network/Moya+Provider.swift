@@ -18,7 +18,7 @@ func createProvider<Target: TargetType>() -> MoyaProvider<Target> {
 
     let logger = NetworkLoggerPlugin(configuration: config)
 
-    return MoyaProvider<Target>(stubClosure: MoyaProvider.immediatelyStub, plugins: [logger])
+    return MoyaProvider<Target>(stubClosure: MoyaProvider.delayedStub(0.1), plugins: [logger])
 }
 
 private func jsonResponseDataFormatter(_ data: Data) -> String {

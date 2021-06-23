@@ -9,7 +9,8 @@ import SwiftUI
 struct ContentView: View {
 
     var body: some View {
-        HomeScreen(presenter: HomePresenterBuilder.build()).environmentObject(HomePresenterBuilder.build())
+        let vm = HomeVM.build()
+        HomeScreen(vm: vm).environmentObject(vm)
     }
 }
 

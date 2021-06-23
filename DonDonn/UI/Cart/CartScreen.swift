@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct CartScreen: AppScreen {
-    @ObservedObject var presenter: CartPresenter
+    @ObservedObject var vm: CartVM
     var menuItems = [MenuItem]()
 
     func ContentView() -> AnyView {
@@ -17,13 +17,21 @@ struct CartScreen: AppScreen {
             }
         }.background(Color(.white))
                 .padding()
-        .eraseToAnyView()
+                .eraseToAnyView()
+    }
+
+}
+
+extension CartScreen {
+
+    static func build(items: [MenuItem]) -> some View {
+        CartScreen(vm: CartPresenterBuilder.build(), menuItems: items)
     }
 
 }
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartScreen(presenter: CartPresenterBuilder.build(), menuItems: Fake.mealItems)
+        CartScreen(vm: CartPresenterBuilder.build(), menuItems: Fake.mealItems)
     }
 }
