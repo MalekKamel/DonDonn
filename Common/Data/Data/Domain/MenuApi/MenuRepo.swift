@@ -8,11 +8,11 @@ import ModelsMapper
 import Combine
 import Moya
 
-public class MenuProvider {
+public class MenuRepo {
     let dataSrc: MenuDataSrc
 
-    public static func create() -> MenuProvider {
-        MenuProvider(dataSrc: MenuDataSrc(api: menuApi))
+    public static func build() -> MenuRepo {
+        MenuRepo(dataSrc: MenuDataSrc(api: menuApi))
     }
 
     init(dataSrc: MenuDataSrc) {

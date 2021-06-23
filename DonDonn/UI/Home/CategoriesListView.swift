@@ -6,12 +6,12 @@ import SwiftUI
 
 struct CategoriesListView: View {
     @State var selectedItem: CategoryItem? = nil
-    @EnvironmentObject var presenter: HomePresenter
+    @EnvironmentObject var vm: HomeVM
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 30) {
-                ForEach(presenter.categoryItems) { item in
+                ForEach(vm.categoryItems) { item in
                     CategoryView(item: item, isSelected: item.id == selectedItem?.id)
                             .onTapGesture {
                                 withAnimation {
@@ -23,12 +23,12 @@ struct CategoriesListView: View {
                                 if selectedItem != nil {
                                     return
                                 }
-                                selectedItem = presenter.categoryItems.first
+                                selectedItem = vm.categoryItems.first
                             }
                 }
             }
         }
-                .onAppear(perform: presenter.loadCategories)
+                .onAppear(perform: vm.loadCategories)
                 .padding(.top, 30)
     }
 }

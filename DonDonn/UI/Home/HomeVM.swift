@@ -4,62 +4,67 @@
 
 import Combine
 
-class HomePresenter: AppPresenter {
-    @Published public var state: ScreenState = .idle
+class HomeVM: AppViewModel {
+    @Published var route: Route? = nil
+    public var routePublisher: Published<Route?>.Publisher {
+        $route
+    }
+    public var loadingState: LoadingState = .init()
+    public var bag = CancelableBag()
+
+    public var dataManager: DataManager
 
     @Published private(set) var menuItems = [MenuItem]()
     @Published private(set) var categoryItems = [CategoryItem]()
     @Published private(set) var promotions = [PromotionItem]()
-    private var cancellables = Set<AnyCancellable>()
-    private var interactor: HomeInteractor
 
-    init(interactor: HomeInteractor) {
-        self.interactor = interactor
+    init(dataManager: DataManager) {
+        self.dataManager = dataManager
     }
 
     func loadCategories() {
-        interactor.categories()
+        dataManager.menuRepo.categories()
                 .catch { _ in
                     Empty<[CategoryItem], Never>()
                 }
                 .sink(receiveValue: { value in
                     self.categoryItems = value
                 })
-                .store(in: &cancellables)
+                .store(in: &bag)
     }
 
     func loadMenuItems() {
-        state = .loading
-        interactor.menu()
+        dataManager.menuRepo.menu()
                 .catch { _ in
                     Empty<[MenuItem], Never>()
                 }
                 .sink(receiveValue: { [weak self] value in
                     self?.menuItems = value
-                    self?.state = .loaded
                 })
-                .store(in: &cancellables)
+                .store(in: &bag)
     }
 
     func loadPromotions() {
-        interactor.promotions()
+        dataManager.menuRepo.promotions()
                 .catch { _ in
                     Empty<[PromotionItem], Never>()
                 }
                 .sink(receiveValue: { value in
                     self.promotions = value
                 })
-                .store(in: &cancellables)
+                .store(in: &bag)
     }
 
 }
 
-class HomePresenterBuilder {
-
-    static func build() -> HomePresenter {
-        let provider = MenuProvider.create()
-        let interactor = HomeInteractor(provider: provider)
-        return HomePresenter(interactor: interactor)
+extension HomeVM {
+    enum Route: AppRoute {
+        case cart
     }
+}
 
+extension HomeVM {
+    static func build() -> HomeVM {
+        HomeVM(dataManager: DataManager.create())
+    }
 }

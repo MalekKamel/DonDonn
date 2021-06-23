@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.4.1)
+  - Alamofire (5.4.3)
   - ModelsMapper (0.1.0)
   - Moya/Combine (15.0.0-alpha.1):
     - Moya/Core
@@ -36,7 +36,7 @@ SPEC REPOS:
     - SwiftMessages
 
 SPEC CHECKSUMS:
-  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   ModelsMapper: 7c7f748889e5583c9c56002d67abb217e01d08e4
   Moya: 101c94dfb29289736ecd20fa6e82bea665e0671b
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84

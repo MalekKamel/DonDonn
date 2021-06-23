@@ -7,13 +7,8 @@
 import SwiftUI
 
 struct HomeScreen: AppScreen {
-    @ObservedObject var presenter: HomePresenter
+    @ObservedObject var vm: HomeVM
     @State var selectedMenuItems = [MenuItem]()
-    @State private var destination: Destination? = nil
-
-    private enum Destination {
-        case cart
-    }
 
     func ContentView() -> AnyView {
         ZStack(alignment: .bottomTrailing) {
@@ -39,35 +34,35 @@ struct HomeScreen: AppScreen {
             }
 
             CartButton(selectedMenuItems: $selectedMenuItems) {
-                self.destination = .cart
+                vm.route = .cart
             }.padding()
 
-            NavigationLinks()
         }.navigationBarHidden(true).eraseToAnyView()
     }
 
-    func onInitialViewAppear() {
-        presenter.loadMenuItems()
+    func onContentAppear() {
+        vm.loadMenuItems()
     }
 
     func LoadingView() -> AnyView {
         ContentView().redacted(reason: .placeholder).eraseToAnyView()
     }
 
-    private func NavigationLinks() -> some View {
+    func NavigationLinks() -> AnyView {
         Group {
             NavigationLink(
-                    destination: CartRouter().makeCartView(items: selectedMenuItems),
+                    destination: CartScreen.build(items: selectedMenuItems),
                     tag: .cart,
-                    selection: $destination) {
+                    selection: $vm.route) {
                 EmptyView()
             }
-        }
+        }.eraseToAnyView()
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreen(presenter: HomePresenterBuilder.build()).environmentObject(HomePresenterBuilder.build())
+        let vm = HomeVM.build()
+        HomeScreen(vm: vm).environmentObject(vm)
     }
 }
