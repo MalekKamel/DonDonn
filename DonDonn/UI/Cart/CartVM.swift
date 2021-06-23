@@ -21,7 +21,6 @@ class CartVM: AppViewModel {
 }
 
 extension CartVM {
-
     enum Route: AppRoute {
     }
 }
