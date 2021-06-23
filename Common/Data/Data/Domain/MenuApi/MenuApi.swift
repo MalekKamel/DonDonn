@@ -61,7 +61,7 @@ extension MenuApi: TargetType {
     public var sampleData: Data {
         switch self {
         case .promotions:
-            let json = "[{\"id\":1,\"image\":\"http://www.scsk12.org/discounts/img/2017/discount.jpg\"},{\"id\":2,\"image\":\"http://www.scsk12.org/discounts/img/2017/discount.jpg\"},{\"id\":3,\"image\":\"http://www.scsk12.org/discounts/img/2017/discount.jpg\"},{\"id\":4,\"image\":\"http://www.scsk12.org/discounts/img/2017/discount.jpg\"},{\"id\":5,\"image\":\"http://www.scsk12.org/discounts/img/2017/discount.jpg\"},{\"id\":6,\"image\":\"http://www.scsk12.org/discounts/img/2017/discount.jpg\"}]"
+            let json = "[{\"id\":1,\"image\":\"https://github.com/ShabanKamell/DonDonn/blob/master/blob/discount2.png?raw=true\"},{\"id\":2,\"image\":\"https://github.com/ShabanKamell/DonDonn/blob/master/blob/discount2.png?raw=true\"},{\"id\":3,\"image\":\"https://github.com/ShabanKamell/DonDonn/blob/master/blob/discount2.png?raw=true\"},{\"id\":4,\"image\":\"https://github.com/ShabanKamell/DonDonn/blob/master/blob/discount2.png?raw=true\"},{\"id\":5,\"image\":\"https://github.com/ShabanKamell/DonDonn/blob/master/blob/discount2.png?raw=true\"},{\"id\":6,\"image\":\"https://github.com/ShabanKamell/DonDonn/blob/master/blob/discount2.png?raw=true\"}]"
             return json.data(using: .utf8)!
 
         case .categories:
