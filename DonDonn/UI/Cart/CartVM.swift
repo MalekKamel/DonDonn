@@ -26,10 +26,8 @@ extension CartVM {
     }
 }
 
-class CartPresenterBuilder {
-
+extension CartVM {
     static func build() -> CartVM {
         CartVM(dataManager: DataManager.create())
     }
-
 }

@@ -25,13 +25,13 @@ struct CartScreen: AppScreen {
 extension CartScreen {
 
     static func build(items: [MenuItem]) -> some View {
-        CartScreen(vm: CartPresenterBuilder.build(), menuItems: items)
+        CartScreen(vm: CartVM.build(), menuItems: items)
     }
 
 }
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartScreen(vm: CartPresenterBuilder.build(), menuItems: Fake.mealItems)
+        CartScreen(vm: CartVM.build(), menuItems: Fake.mealItems)
     }
 }
