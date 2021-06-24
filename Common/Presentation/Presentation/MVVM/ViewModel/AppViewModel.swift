@@ -9,7 +9,7 @@ import Combine
 import Moya
 
 public protocol AppViewModel: ObservableObject, Presentable {
-    var requester: CombineRequestHandler { get }
+    var requester: CombineRequester { get }
     var state: ScreenState { get set }
     var bag: CancelableBag { get set }
     var dataManager: DataManager { get set }

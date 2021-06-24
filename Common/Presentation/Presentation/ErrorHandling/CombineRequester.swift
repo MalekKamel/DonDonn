@@ -7,7 +7,7 @@ import Moya
 
 public typealias Request<T> = () -> AnyPublisher<T, MoyaError>
 
-public struct CombineRequestHandler {
+public struct CombineRequester {
     /// Set NSError handlers
     public static var nsErrorHandlers: Array<NSErrorHandler> = []
 

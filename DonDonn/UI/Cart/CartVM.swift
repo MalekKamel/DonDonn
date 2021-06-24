@@ -9,9 +9,9 @@ class CartVM: AppViewModel {
     @Published public var state: ScreenState = .init()
     public var bag = CancelableBag()
     public var dataManager: DataManager
-    public var requester: CombineRequestHandler
+    public var requester: CombineRequester
 
-    init(dataManager: DataManager, requester: CombineRequestHandler) {
+    init(dataManager: DataManager, requester: CombineRequester) {
         self.dataManager = dataManager
         self.requester = requester
     }
@@ -25,6 +25,6 @@ extension CartVM {
 
 extension CartVM {
     static func build() -> CartVM {
-        CartVM(dataManager: DataManager.create(), requester: CombineRequestHandler())
+        CartVM(dataManager: DataManager.create(), requester: CombineRequester())
     }
 }

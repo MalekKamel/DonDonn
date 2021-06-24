@@ -23,7 +23,7 @@ public class ErrorProcessor {
 }
 
 private func handle(error: Swift.Error, presentable: Presentable?) -> Bool {
-    let handler: ErrorHandler? = CombineRequestHandler.errorHandlers.first(where: {
+    let handler: ErrorHandler? = CombineRequester.errorHandlers.first(where: {
         $0.canHandle(error: error)
     })
 
@@ -34,7 +34,7 @@ private func handle(error: Swift.Error, presentable: Presentable?) -> Bool {
 }
 
 private func handleNSError(error: NSError, presentable: Presentable?) -> Bool {
-    let handler: NSErrorHandler? = CombineRequestHandler.nsErrorHandlers.first(where: {
+    let handler: NSErrorHandler? = CombineRequester.nsErrorHandlers.first(where: {
         $0.canHandle(error: error)
     })
 

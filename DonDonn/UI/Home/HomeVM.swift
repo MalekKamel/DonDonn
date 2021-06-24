@@ -9,13 +9,13 @@ class HomeVM: AppViewModel {
     @Published public var state: ScreenState = .init()
     public var bag = CancelableBag()
     public var dataManager: DataManager
-    public var requester: CombineRequestHandler
+    public var requester: CombineRequester
 
     @Published private(set) var menuItems = [MenuItem]()
     @Published private(set) var categoryItems = [CategoryItem]()
     @Published private(set) var promotions = [PromotionItem]()
 
-    init(dataManager: DataManager, requester: CombineRequestHandler) {
+    init(dataManager: DataManager, requester: CombineRequester) {
         self.dataManager = dataManager
         self.requester = requester
     }
@@ -55,6 +55,6 @@ class HomeVM: AppViewModel {
 extension HomeVM {
     static func build() -> HomeVM {
         HomeVM(dataManager: DataManager.create(),
-                requester: CombineRequestHandler())
+                requester: CombineRequester())
     }
 }

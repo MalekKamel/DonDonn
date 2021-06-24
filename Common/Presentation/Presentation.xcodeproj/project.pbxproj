@@ -22,7 +22,7 @@
 		58B83425E2923644AA9D957C /* PageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B831511C3558831DFBF885 /* PageIndicator.swift */; };
 		58B8344EA9F5A44BA609AE19 /* View+HideNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B832A9765BBC5A633CD1B4 /* View+HideNavigationBar.swift */; };
 		58B8350094EF7E1035CCD663 /* RequestOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B831FE1819CC20952C56A0 /* RequestOptions.swift */; };
-		58B8352F7ACB1F45F5A66F85 /* CombineRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B833B220EE640788EC16B4 /* CombineRequestHandler.swift */; };
+		58B8352F7ACB1F45F5A66F85 /* CombineRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B833B220EE640788EC16B4 /* CombineRequester.swift */; };
 		58B8361C77A3649A027DD6E0 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B8389744AB8DB2E141782B /* AppRoute.swift */; };
 		58B836A73A74022BF1D5F9CC /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B839C9CEE6CF1C41EA3A36 /* Presentable.swift */; };
 		58B836A7CBEF949036EDEF71 /* MoyaUnderlyingErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B833972FA7F228182BDB34 /* MoyaUnderlyingErrorHandler.swift */; };
@@ -33,7 +33,6 @@
 		58B83AF5DABB6B7059A950D5 /* View+EraseToAnyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B83A68D7D1BEE8F69E88CE /* View+EraseToAnyView.swift */; };
 		58B83BFCD0A70ABC0CB816B5 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B839189F85CA92172ED503 /* AppViewModel.swift */; };
 		58B83CB3070E8AFE23520AEA /* MoyaHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B83102DA1C1ED24CBFC2FF /* MoyaHandlers.swift */; };
-		58B83CE25A60140326D98EBB /* CombineRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B83CFD048B61AFB9F72B7D /* CombineRequester.swift */; };
 		58B83D275894B9CE5A95CCB1 /* UITableView+RemoveHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B838E79FCCE3F98905DABD /* UITableView+RemoveHeader.swift */; };
 		58B83D7068617A0E166D33FD /* NSErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B8379E7F5F369CE56F914B /* NSErrorHandler.swift */; };
 		58B83E607F66C55BE59CFDF9 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B835DA2293471BA0AE7574 /* Spinner.swift */; };
@@ -83,7 +82,7 @@
 		58B831FE1819CC20952C56A0 /* RequestOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOptions.swift; sourceTree = "<group>"; };
 		58B832A9765BBC5A633CD1B4 /* View+HideNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+HideNavigationBar.swift"; sourceTree = "<group>"; };
 		58B833972FA7F228182BDB34 /* MoyaUnderlyingErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaUnderlyingErrorHandler.swift; sourceTree = "<group>"; };
-		58B833B220EE640788EC16B4 /* CombineRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineRequestHandler.swift; sourceTree = "<group>"; };
+		58B833B220EE640788EC16B4 /* CombineRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineRequester.swift; sourceTree = "<group>"; };
 		58B83521B9A96886FBC37F4B /* AppScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppScreen.swift; sourceTree = "<group>"; };
 		58B835DA2293471BA0AE7574 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		58B836A88F05195CDAA22DD3 /* ErrorProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorProcessor.swift; sourceTree = "<group>"; };
@@ -97,7 +96,6 @@
 		58B839C9CEE6CF1C41EA3A36 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		58B83A68D7D1BEE8F69E88CE /* View+EraseToAnyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+EraseToAnyView.swift"; sourceTree = "<group>"; };
 		58B83A80AF58D82C39E89C68 /* PluggableErrorProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluggableErrorProcessor.swift; sourceTree = "<group>"; };
-		58B83CFD048B61AFB9F72B7D /* CombineRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineRequester.swift; sourceTree = "<group>"; };
 		58B83D7017540E3CFA6B2AED /* ErrorProcessor+Moya.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ErrorProcessor+Moya.swift"; sourceTree = "<group>"; };
 		58B83DCD7F4707D49F2B0D1D /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		58B83E409C802CE837CB4437 /* ScreenState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenState.swift; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 				58B8389C9AAA669FEAC0230D /* Extensions */,
 				58B83FF52B25803F6291BB2D /* MVVM */,
 				58B833ED9B287D8B9255DE5E /* Spinner */,
-				58B83B52E45DB9E5A4EF0410 /* CombineRequester */,
 				58B833042AAC20EF6E0E267B /* ErrorHandling */,
 			);
 			path = Presentation;
@@ -197,7 +194,7 @@
 				58B836A88F05195CDAA22DD3 /* ErrorProcessor.swift */,
 				58B834867931F9EF3B1FEA39 /* Handler */,
 				58B839C9CEE6CF1C41EA3A36 /* Presentable.swift */,
-				58B833B220EE640788EC16B4 /* CombineRequestHandler.swift */,
+				58B833B220EE640788EC16B4 /* CombineRequester.swift */,
 				58B83C632C08566CF5317BBD /* Moya */,
 				58B831FE1819CC20952C56A0 /* RequestOptions.swift */,
 				58B83A80AF58D82C39E89C68 /* PluggableErrorProcessor.swift */,
@@ -274,14 +271,6 @@
 				58B833972FA7F228182BDB34 /* MoyaUnderlyingErrorHandler.swift */,
 			);
 			path = Handler;
-			sourceTree = "<group>";
-		};
-		58B83B52E45DB9E5A4EF0410 /* CombineRequester */ = {
-			isa = PBXGroup;
-			children = (
-				58B83CFD048B61AFB9F72B7D /* CombineRequester.swift */,
-			);
-			path = CombineRequester;
 			sourceTree = "<group>";
 		};
 		58B83C632C08566CF5317BBD /* Moya */ = {
@@ -464,11 +453,10 @@
 				58B83E74798BEB5A94DE881B /* View+LoadingIndicator.swift in Sources */,
 				58B8344EA9F5A44BA609AE19 /* View+HideNavigationBar.swift in Sources */,
 				58B83E607F66C55BE59CFDF9 /* Spinner.swift in Sources */,
-				58B83CE25A60140326D98EBB /* CombineRequester.swift in Sources */,
 				58B8310589F3D92040AA4B0A /* ErrorProcessor.swift in Sources */,
 				58B8383BFCB6246EA154B529 /* ErrorHandler.swift in Sources */,
 				58B836A73A74022BF1D5F9CC /* Presentable.swift in Sources */,
-				58B8352F7ACB1F45F5A66F85 /* CombineRequestHandler.swift in Sources */,
+				58B8352F7ACB1F45F5A66F85 /* CombineRequester.swift in Sources */,
 				58B83D7068617A0E166D33FD /* NSErrorHandler.swift in Sources */,
 				58B837E6DD4E3C53D3A8CA7C /* ErrorProcessor+Moya.swift in Sources */,
 				58B83CB3070E8AFE23520AEA /* MoyaHandlers.swift in Sources */,
