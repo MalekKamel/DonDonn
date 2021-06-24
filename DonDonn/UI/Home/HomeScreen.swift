@@ -9,6 +9,7 @@ import SwiftUI
 struct HomeScreen: AppScreen {
     @ObservedObject var vm: HomeVM
     @State var selectedMenuItems = [MenuItem]()
+    @State public var route: Route? = nil
 
     func ContentView() -> AnyView {
         ZStack(alignment: .bottomTrailing) {
@@ -34,7 +35,7 @@ struct HomeScreen: AppScreen {
             }
 
             CartButton(selectedMenuItems: $selectedMenuItems) {
-                vm.route = .cart
+                route = .cart
             }.padding()
 
         }.navigationBarHidden(true).eraseToAnyView()
@@ -42,10 +43,8 @@ struct HomeScreen: AppScreen {
 
     func onContentAppear() {
         vm.loadMenuItems()
-    }
-
-    func LoadingView() -> AnyView {
-        ContentView().redacted(reason: .placeholder).eraseToAnyView()
+        vm.loadCategories()
+        vm.loadPromotions()
     }
 
     func NavigationLinks() -> AnyView {
@@ -53,10 +52,16 @@ struct HomeScreen: AppScreen {
             NavigationLink(
                     destination: CartScreen.build(items: selectedMenuItems),
                     tag: .cart,
-                    selection: $vm.route) {
+                    selection: $route) {
                 EmptyView()
             }
         }.eraseToAnyView()
+    }
+}
+
+extension HomeScreen {
+    enum Route: AppRoute {
+        case cart
     }
 }
 

@@ -10,9 +10,12 @@ import Core
 /// NOT a single component.
 public protocol AppScreen: View {
     associatedtype ViewModel: AppViewModel
+    associatedtype ScreenRoute: AppRoute
 
     /// The viewModel of this screen
     var vm: ViewModel { get set }
+
+    var route: ScreenRoute? { get set }
 
     /// The main container for the whole screen
     /// - Returns: AnyView
@@ -29,16 +32,13 @@ public protocol AppScreen: View {
 
     /// The screen error view.
     /// - Returns: AnyView
-    func ErrorView(error: Swift.Error) -> Alert
+    func ErrorView(error: String) -> Alert
 
     /// Called when the root view appears.
     func onContentAppear()
 
     /// Called when the root view disappears.
     func onContentDisappear()
-
-    /// Called when the view model route changes.
-    func onRouteChanged(route: ViewModel.ScreenRoute?)
 
     /// Navigation links, added to the content for you.
     func NavigationLinks() -> AnyView
@@ -52,13 +52,12 @@ public extension AppScreen {
             BodyView()
                     .onAppear(perform: onContentAppear)
                     .onDisappear(perform: onContentDisappear)
-                    .onReceive(vm.routePublisher, perform: onRouteChanged)
         }
     }
 
     func BodyView() -> AnyView {
         ContentView().loadingIndicator(
-                loadingState: vm.loadingState,
+                loadingState: vm.state,
                 loadingView: LoadingView()
         ) { error in
             ErrorView(error: error)
@@ -69,13 +68,11 @@ public extension AppScreen {
         Spinner(isAnimating: true, style: .large, color: .black).eraseToAnyView()
     }
 
-    func ErrorView(error: Swift.Error) -> Alert {
-        // TODO
+    func ErrorView(error: String) -> Alert {
         Alert(
-                title: Text("L10n.error"),
-                message: Text(error.localizedDescription),
-                // TODO
-                dismissButton: .default(Text("L10n.dismiss"))
+                title: Text(L10n.error),
+                message: Text(error),
+                dismissButton: .default(Text(L10n.dismiss))
         )
     }
 
@@ -83,9 +80,6 @@ public extension AppScreen {
     }
 
     func onContentDisappear() {
-    }
-
-    func onRouteChanged(route: ViewModel.ScreenRoute?) {
     }
 
     func NavigationLinks() -> AnyView {

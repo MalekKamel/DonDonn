@@ -52,7 +52,7 @@ struct PromotionsView: View {
                             .padding(.bottom, 50)
                 }
             }
-        }.onAppear(perform: vm.loadPromotions)
+        }
     }
 }
 

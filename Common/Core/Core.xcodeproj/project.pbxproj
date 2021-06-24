@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189033042685212A00C13986 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18BA8DF52613A08600F20689 /* Localizable.strings */; };
 		18BA8BD9261375F700F20689 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BA8BCF261375F700F20689 /* Core.framework */; };
 		18BA8BDE261375F700F20689 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA8BDD261375F700F20689 /* CoreTests.swift */; };
 		18BA8BE0261375F700F20689 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 18BA8BD2261375F700F20689 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -240,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18BA8E132613A2B600F20689 /* Assets.xcassets in Resources */,
+				189033042685212A00C13986 /* Localizable.strings in Resources */,
 				18BA8E162613A2B800F20689 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

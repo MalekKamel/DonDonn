@@ -4,8 +4,7 @@
 
 import Foundation
 
-public class DataManager {
+public struct DataManager {
     public lazy var menuRepo: MenuRepo = { MenuRepo.build() }()
     public static func create() -> DataManager { DataManager() }
-
 }

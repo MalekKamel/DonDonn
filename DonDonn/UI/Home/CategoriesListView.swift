@@ -28,7 +28,6 @@ struct CategoriesListView: View {
                 }
             }
         }
-                .onAppear(perform: vm.loadCategories)
                 .padding(.top, 30)
     }
 }

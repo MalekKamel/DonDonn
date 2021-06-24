@@ -3,30 +3,27 @@
 //
 
 import Combine
+import Moya
 
 class HomeVM: AppViewModel {
-    @Published var route: Route? = nil
-    public var routePublisher: Published<Route?>.Publisher {
-        $route
-    }
-    public var loadingState: LoadingState = .init()
+    @Published public var state: ScreenState = .init()
     public var bag = CancelableBag()
-
     public var dataManager: DataManager
+    public var requester: CombineRequestHandler
 
     @Published private(set) var menuItems = [MenuItem]()
     @Published private(set) var categoryItems = [CategoryItem]()
     @Published private(set) var promotions = [PromotionItem]()
 
-    init(dataManager: DataManager) {
+    init(dataManager: DataManager, requester: CombineRequestHandler) {
         self.dataManager = dataManager
+        self.requester = requester
     }
 
     func loadCategories() {
-        dataManager.menuRepo.categories()
-                .catch { _ in
-                    Empty<[CategoryItem], Never>()
-                }
+        request(dataManager.menuRepo.categories())
+                .delay(for: .seconds(1), scheduler: DispatchQueue.global(), options: .none)
+
                 .sink(receiveValue: { value in
                     self.categoryItems = value
                 })
@@ -34,10 +31,8 @@ class HomeVM: AppViewModel {
     }
 
     func loadMenuItems() {
-        dataManager.menuRepo.menu()
-                .catch { _ in
-                    Empty<[MenuItem], Never>()
-                }
+        request(dataManager.menuRepo.menu())
+                .delay(for: .seconds(1), scheduler: DispatchQueue.global(), options: .none)
                 .sink(receiveValue: { [weak self] value in
                     self?.menuItems = value
                 })
@@ -45,26 +40,21 @@ class HomeVM: AppViewModel {
     }
 
     func loadPromotions() {
-        dataManager.menuRepo.promotions()
-                .catch { _ in
-                    Empty<[PromotionItem], Never>()
-                }
-                .sink(receiveValue: { value in
-                    self.promotions = value
+        request(dataManager.menuRepo.promotions())
+                .delay(for: .seconds(1), scheduler: DispatchQueue.global(), options: .none)
+                .sink(receiveValue: { [weak self] value in
+                    self?.promotions = value
                 })
                 .store(in: &bag)
     }
 
 }
 
-extension HomeVM {
-    enum Route: AppRoute {
-        case cart
-    }
-}
+
 
 extension HomeVM {
     static func build() -> HomeVM {
-        HomeVM(dataManager: DataManager.create())
+        HomeVM(dataManager: DataManager.create(),
+                requester: CombineRequestHandler())
     }
 }

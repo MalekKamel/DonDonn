@@ -13,6 +13,10 @@ import Foundation
 public enum L10n {
   /// DonDonn
   public static let appName = L10n.tr("Localizable", "app_name")
+  /// Dismiss
+  public static let dismiss = L10n.tr("Localizable", "dismiss")
+  /// Error
+  public static let error = L10n.tr("Localizable", "error")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

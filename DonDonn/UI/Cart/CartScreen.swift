@@ -9,6 +9,7 @@ import SwiftUI
 struct CartScreen: AppScreen {
     @ObservedObject var vm: CartVM
     var menuItems = [MenuItem]()
+    @State public var route: Route? = nil
 
     func ContentView() -> AnyView {
         List {
@@ -29,6 +30,12 @@ extension CartScreen {
     }
 
 }
+
+extension CartScreen {
+    enum Route: AppRoute {
+    }
+}
+
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {

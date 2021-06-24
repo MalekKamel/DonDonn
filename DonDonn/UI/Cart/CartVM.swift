@@ -5,17 +5,15 @@
 import Combine
 
 class CartVM: AppViewModel {
-    @Published var route: Route? = nil
-    public var routePublisher: Published<Route?>.Publisher {
-        $route
-    }
-    public var loadingState: LoadingState = .init()
+    @Published public var route: RouteState<Route> = .init()
+    @Published public var state: ScreenState = .init()
     public var bag = CancelableBag()
-
     public var dataManager: DataManager
+    public var requester: CombineRequestHandler
 
-    init(dataManager: DataManager) {
+    init(dataManager: DataManager, requester: CombineRequestHandler) {
         self.dataManager = dataManager
+        self.requester = requester
     }
 
 }
@@ -27,6 +25,6 @@ extension CartVM {
 
 extension CartVM {
     static func build() -> CartVM {
-        CartVM(dataManager: DataManager.create())
+        CartVM(dataManager: DataManager.create(), requester: CombineRequestHandler())
     }
 }

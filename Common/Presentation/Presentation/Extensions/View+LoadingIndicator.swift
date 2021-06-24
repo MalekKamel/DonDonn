@@ -5,23 +5,27 @@
 import SwiftUI
 
 public struct LoadingModifier: ViewModifier {
-    @ObservedObject public var loadingState: LoadingState
-    public  var loadingView: AnyView
-    public var errorView: (Swift.Error) -> Alert
+    @ObservedObject public var loadingState: ScreenState
+    public var loadingView: AnyView
+    public var errorView: (String) -> Alert
 
     public func body(content: Content) -> some View {
         GeometryReader { geometry in
             ZStack {
-                switch loadingState.state {
-                case .idle,
-                     .loaded:
+                switch loadingState.loading {
+                case .idle:
                     content.eraseToAnyView()
                 case .loading:
                     ZStack {
                         content
                         loadingView
                     }.eraseToAnyView()
-                case .failed(let error):
+                }
+
+                switch loadingState.error {
+                case .none:
+                    content.eraseToAnyView()
+                case .error(let error):
                     content.alert(isPresented: .constant(true)) {
                         errorView(error)
                     }.eraseToAnyView()
@@ -32,9 +36,9 @@ public struct LoadingModifier: ViewModifier {
 }
 
 public extension View {
-    func loadingIndicator(loadingState: LoadingState,
+    func loadingIndicator(loadingState: ScreenState,
                           loadingView: AnyView,
-                          errorView: @escaping (Swift.Error) -> Alert) -> some View {
+                          errorView: @escaping (String) -> Alert) -> some View {
         modifier(LoadingModifier(
                 loadingState: loadingState,
                 loadingView: loadingView,

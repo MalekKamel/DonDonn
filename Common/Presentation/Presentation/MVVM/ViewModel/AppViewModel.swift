@@ -6,50 +6,49 @@ import SwiftUI
 import Data
 import Core
 import Combine
+import Moya
 
-public protocol AppViewModel: ObservableObject {
-    associatedtype ScreenRoute: AppRoute
-    var route: ScreenRoute? { get set }
-    var routePublisher: Published<ScreenRoute?>.Publisher { get }
-
-    var loadingState: LoadingState { get set }
+public protocol AppViewModel: ObservableObject, Presentable {
+    var requester: CombineRequestHandler { get }
+    var state: ScreenState { get set }
     var bag: CancelableBag { get set }
     var dataManager: DataManager { get set }
-    func request<T>(_ api: AnyPublisher<T, Swift.Error>,
-                    onError: ((Swift.Error) -> Void)?,
-                    completion: @escaping (T) -> Void)
+
+    func request<T>(_ api: AnyPublisher<T, MoyaError>,
+                    options: RequestOptions) -> AnyPublisher<T, Never>
+}
+
+// MARK:- Presentable implementation
+public extension AppViewModel {
+
+    func showError(error: String) {
+        state.error = .error(error)
+    }
+
+    func showLoading() {
+        state.loading = .loading
+    }
+
+    func hideLoading() {
+        state.loading = .idle
+    }
+
+    func onHandleErrorFailed(error: Error) {
+        state.error = .error(error.localizedDescription)
+    }
 }
 
 public extension AppViewModel {
 
-    func request<T>(_ api: AnyPublisher<T, Swift.Error>,
-                    onError: ((Swift.Error) -> Void)? = nil,
-                    subject: NeverSubject<T>) {
-        request(api, onError: onError) { [weak self] value in
-            guard let self = self else {
-                return
-            }
-            subject.send(value)
-            subject.send(completion: Subscribers.Completion<Never>.finished)
-            self.loadingState.state  = .loaded
-        }
-    }
-
-    func request<T>(_ api: AnyPublisher<T, Swift.Error>,
-                    onError: ((Swift.Error) -> Void)? = nil,
-                    completion: @escaping (T) -> Void) {
-        loadingState.state = .loading
-        CombineRequester().request(
-                        api,
-                        onError: { [weak self] error in
-                            onError?(error)
-                            self?.loadingState.state  = .failed(error)
-                        },
-                        completion: { [weak self] value in
-                            completion(value)
-                            self?.loadingState.state  = .loaded
-                        })
-                .store(in: &bag)
+    func request<T>(_ api: AnyPublisher<T, MoyaError>,
+                    options: RequestOptions = RequestOptions.defaultOptions()
+    ) -> AnyPublisher<T, Never> {
+        state.loading = .loading
+        return requester
+                .request(api, options: options, presentable: self)
+                .subscribe(on: DispatchQueue.global())
+                .receive(on: RunLoop.main)
+                .eraseToAnyPublisher()
     }
 
 }
