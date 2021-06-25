@@ -61,7 +61,6 @@ public extension AppScreen {
         Spinner(isAnimating: true, style: .large, color: .black).eraseToAnyView()
     }
 
-
     func onContentAppear() {
     }
 
