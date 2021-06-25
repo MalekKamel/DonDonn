@@ -7,7 +7,6 @@ import Moya
 
 class HomeVM: AppViewModel {
     @Published public var loadState: LoadingState = .init()
-    @Published public var errorState: ErrorState = .init()
     public var bag = CancelableBag()
     public var dataManager: DataManager
     public var requester: CombineRequester
@@ -22,7 +21,15 @@ class HomeVM: AppViewModel {
     }
 
     func loadCategories() {
-        request(dataManager.menuRepo.categories())
+        let api: AnyPublisher<[CategoryItem], MoyaError> = dataManager.menuRepo.categories()
+                .tryMap { out in
+                    throw MoyaError.encodableMapping(NSError(domain: "eee", code: 100))
+                }
+                .mapError { error in
+                    MoyaError.encodableMapping(NSError(domain: "eee", code: 100))
+                }
+                .eraseToAnyPublisher()
+        request(api)
                 .delay(for: .seconds(1), scheduler: DispatchQueue.global(), options: .none)
 
                 .sink(receiveValue: { value in
@@ -41,7 +48,16 @@ class HomeVM: AppViewModel {
     }
 
     func loadPromotions() {
-        request(dataManager.menuRepo.promotions())
+        let api: AnyPublisher<[PromotionItem], MoyaError> = dataManager.menuRepo.promotions()
+                .tryMap { out in
+                    throw MoyaError.encodableMapping(NSError(domain: "eee", code: 100))
+                }
+                .mapError { error in
+                    MoyaError.parameterEncoding(NSError(domain: "eee", code: 100))
+                }
+                .eraseToAnyPublisher()
+        request(api)
+//        request(dataManager.menuRepo.promotions())
                 .delay(for: .seconds(1), scheduler: DispatchQueue.global(), options: .none)
                 .sink(receiveValue: { [weak self] value in
                     self?.promotions = value
@@ -50,7 +66,6 @@ class HomeVM: AppViewModel {
     }
 
 }
-
 
 
 extension HomeVM {

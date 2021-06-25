@@ -11,20 +11,14 @@ import Moya
 public protocol AppViewModel: ObservableObject, Presentable {
     var requester: CombineRequester { get }
     var loadState: LoadingState { get set }
-    var errorState: ErrorState { get set }
     var bag: CancelableBag { get set }
     var dataManager: DataManager { get set }
 
-    func request<T>(_ api: AnyPublisher<T, MoyaError>,
-                    options: RequestOptions) -> AnyPublisher<T, Never>
+    func request<T>(_ api: AnyPublisher<T, MoyaError>, options: RequestOptions) -> AnyPublisher<T, Never>
 }
 
 // MARK:- Presentable implementation
 public extension AppViewModel {
-
-    func showError(error: String) {
-        errorState.error = .error(error)
-    }
 
     func showLoading() {
         loadState.loading = .loading
@@ -34,8 +28,12 @@ public extension AppViewModel {
         loadState.loading = .idle
     }
 
+    func showError(error: String) {
+        Reporter.shared.show(error: error)
+    }
+
     func onHandleErrorFailed(error: Error) {
-        errorState.error = .error(error.localizedDescription)
+        Reporter.shared.show(error: error)
     }
 }
 

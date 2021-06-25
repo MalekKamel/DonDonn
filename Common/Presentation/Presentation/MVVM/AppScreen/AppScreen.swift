@@ -30,10 +30,6 @@ public protocol AppScreen: View {
     /// - Returns: AnyView
     func LoadingView() -> AnyView
 
-    /// The screen error view.
-    /// - Returns: AnyView
-    func ErrorView(error: String) -> Alert
-
     /// Called when the root view appears.
     func onContentAppear()
 
@@ -57,26 +53,14 @@ public extension AppScreen {
 
     func BodyView() -> AnyView {
         ContentView()
-                .loadingIndicator(
-                        state: vm.loadState,
-                        loadingView: LoadingView()
-                )
-                .errorIndicator(state: vm.errorState) { error in
-                    ErrorView(error: error)
-                }.eraseToAnyView()
+                .loadingIndicator(state: vm.loadState, loadingView: LoadingView())
+                .eraseToAnyView()
     }
 
     func LoadingView() -> AnyView {
         Spinner(isAnimating: true, style: .large, color: .black).eraseToAnyView()
     }
 
-    func ErrorView(error: String) -> Alert {
-        Alert(
-                title: Text(L10n.error),
-                message: Text(error),
-                dismissButton: .default(Text(L10n.dismiss))
-        )
-    }
 
     func onContentAppear() {
     }

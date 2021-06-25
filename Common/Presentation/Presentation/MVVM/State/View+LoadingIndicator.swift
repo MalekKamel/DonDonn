@@ -24,8 +24,7 @@ public struct LoadingModifier: ViewModifier {
 }
 
 public extension View {
-    func loadingIndicator(state: LoadingState,
-                          loadingView: AnyView) -> some View {
+    func loadingIndicator(state: LoadingState, loadingView: AnyView) -> some View {
         modifier(LoadingModifier(
                 state: state,
                 loadingView: loadingView))

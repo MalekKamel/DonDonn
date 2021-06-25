@@ -35,7 +35,8 @@ struct HomeScreen: AppScreen {
             }
 
             CartButton(selectedMenuItems: $selectedMenuItems) {
-                route = .cart
+                vm.loadCategories()
+//                route = .cart
             }.padding()
 
         }.navigationBarHidden(true).eraseToAnyView()
