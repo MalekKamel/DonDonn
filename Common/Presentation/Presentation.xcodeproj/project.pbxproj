@@ -31,6 +31,7 @@
 		58B8383BFCB6246EA154B529 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B83DCD7F4707D49F2B0D1D /* ErrorHandler.swift */; };
 		58B8385B8A3F4233E6FFA877 /* Reportable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B8324AC2029C7E3A4427AE /* Reportable.swift */; };
 		58B83A0382645131861AD915 /* RemoveListSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B836C70917747EDBF77BD0 /* RemoveListSeparator.swift */; };
+		58B83AC516662D9059E36D70 /* Reporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B832E5D7B452CB13871375 /* Reporter.swift */; };
 		58B83AF5DABB6B7059A950D5 /* View+EraseToAnyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B83A68D7D1BEE8F69E88CE /* View+EraseToAnyView.swift */; };
 		58B83B1E5DD9441454DA875D /* RouteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B83DD3A4A2774390BE4511 /* RouteState.swift */; };
 		58B83BAA27871136931DEE96 /* UIApplication+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B83313CD3A7178F556DE13 /* UIApplication+UIViewController.swift */; };
@@ -85,6 +86,7 @@
 		58B831FE1819CC20952C56A0 /* RequestOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOptions.swift; sourceTree = "<group>"; };
 		58B8324AC2029C7E3A4427AE /* Reportable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reportable.swift; sourceTree = "<group>"; };
 		58B832A9765BBC5A633CD1B4 /* View+HideNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+HideNavigationBar.swift"; sourceTree = "<group>"; };
+		58B832E5D7B452CB13871375 /* Reporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reporter.swift; sourceTree = "<group>"; };
 		58B83313CD3A7178F556DE13 /* UIApplication+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+UIViewController.swift"; sourceTree = "<group>"; };
 		58B833972FA7F228182BDB34 /* MoyaUnderlyingErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaUnderlyingErrorHandler.swift; sourceTree = "<group>"; };
 		58B833B220EE640788EC16B4 /* CombineRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineRequester.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				58B8324AC2029C7E3A4427AE /* Reportable.swift */,
+				58B832E5D7B452CB13871375 /* Reporter.swift */,
 			);
 			path = Reportable;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				58B83BCB2006B348522B5899 /* View+LoadingIndicator.swift in Sources */,
 				58B83BAA27871136931DEE96 /* UIApplication+UIViewController.swift in Sources */,
 				58B8385B8A3F4233E6FFA877 /* Reportable.swift in Sources */,
+				58B83AC516662D9059E36D70 /* Reporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

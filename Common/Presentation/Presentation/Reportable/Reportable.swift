@@ -161,8 +161,3 @@ fileprivate func showSwiftMessage(
 
     SwiftMessages.show(config: config, view: view)
 }
-
-
-public class Reporter: Reportable {
-    public static let shared = Reporter()
-}
