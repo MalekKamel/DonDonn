@@ -61,9 +61,9 @@ public extension AppScreen {
                         state: vm.loadState,
                         loadingView: LoadingView()
                 )
-        .errorIndicator(state: vm.errorState) { error in
-            ErrorView(error: error)
-        }.eraseToAnyView()
+                .errorIndicator(state: vm.errorState) { error in
+                    ErrorView(error: error)
+                }.eraseToAnyView()
     }
 
     func LoadingView() -> AnyView {
