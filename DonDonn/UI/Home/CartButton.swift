@@ -10,9 +10,9 @@ struct CartButton: View {
 
     var body: some View {
         Button(action: {
-//            if selectedMenuItems.isEmpty {
-//                return
-//            }
+            if selectedMenuItems.isEmpty {
+                return
+            }
             action()
         }) {
             ZStack(alignment: .center) {
