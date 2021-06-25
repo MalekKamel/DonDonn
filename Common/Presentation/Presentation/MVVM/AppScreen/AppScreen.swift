@@ -56,10 +56,12 @@ public extension AppScreen {
     }
 
     func BodyView() -> AnyView {
-        ContentView().loadingIndicator(
-                loadingState: vm.state,
-                loadingView: LoadingView()
-        ) { error in
+        ContentView()
+                .loadingIndicator(
+                        state: vm.loadState,
+                        loadingView: LoadingView()
+                )
+        .errorIndicator(state: vm.errorState) { error in
             ErrorView(error: error)
         }.eraseToAnyView()
     }

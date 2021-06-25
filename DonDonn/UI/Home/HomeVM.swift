@@ -6,7 +6,8 @@ import Combine
 import Moya
 
 class HomeVM: AppViewModel {
-    @Published public var state: ScreenState = .init()
+    @Published public var loadState: LoadingState = .init()
+    @Published public var errorState: ErrorState = .init()
     public var bag = CancelableBag()
     public var dataManager: DataManager
     public var requester: CombineRequester

@@ -10,7 +10,8 @@ import Moya
 
 public protocol AppViewModel: ObservableObject, Presentable {
     var requester: CombineRequester { get }
-    var state: ScreenState { get set }
+    var loadState: LoadingState { get set }
+    var errorState: ErrorState { get set }
     var bag: CancelableBag { get set }
     var dataManager: DataManager { get set }
 
@@ -22,19 +23,19 @@ public protocol AppViewModel: ObservableObject, Presentable {
 public extension AppViewModel {
 
     func showError(error: String) {
-        state.error = .error(error)
+        errorState.error = .error(error)
     }
 
     func showLoading() {
-        state.loading = .loading
+        loadState.loading = .loading
     }
 
     func hideLoading() {
-        state.loading = .idle
+        loadState.loading = .idle
     }
 
     func onHandleErrorFailed(error: Error) {
-        state.error = .error(error.localizedDescription)
+        errorState.error = .error(error.localizedDescription)
     }
 }
 
@@ -43,8 +44,7 @@ public extension AppViewModel {
     func request<T>(_ api: AnyPublisher<T, MoyaError>,
                     options: RequestOptions = RequestOptions.defaultOptions()
     ) -> AnyPublisher<T, Never> {
-        state.loading = .loading
-        return requester
+        requester
                 .request(api, options: options, presentable: self)
                 .subscribe(on: DispatchQueue.global())
                 .receive(on: RunLoop.main)
